@@ -22,6 +22,7 @@ function getAllClients(req, res) {
 }
 
 
+
 module.exports = { // Exporta todos los metodos
     saveClient: saveClient,
     getAllClients : getAllClients

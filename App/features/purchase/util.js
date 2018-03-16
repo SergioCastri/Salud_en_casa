@@ -7,19 +7,27 @@ medicament = modelMedicament.getMedicament()
 
 function savePurchase(req, res) {
     medicament.find({ medicament: req.body.nameMedicament }, '-_id -__v ', function (err, doc) {
-        let availableQuantity = doc.medicament;
-        let value = doc.value;
+        let availableQuantity = doc[0].quantity;
+        let value = doc[0].value;
 
         let newPurchase = new purchase({
-            id: req.body.id, nameUser: req.body.nameUser, nameMedicament: availableQuantity,
+            nameUser: req.body.nameUser, nameMedicament: req.body.nameMedicament,
             quantity: req.body.quantity, unitaryValue: value, totalValue: (req.body.quantity * value)
 
         })
-
+        let newMedicament = new medicament({
+            medicament : req.body.nameMedicament, quantity : (availableQuantity - req.body.quantity), 
+            value: value
+        })
+        newMedicament.save(function () {
+        })
 
         newPurchase.save(function () {
-            res.send({ "message": "Usuario registrado exitosamente" })
         })
+
+        medicament.findOneAndRemove({medicament: req.body.nameMedicament, quantity: availableQuantity}, function(err) {
+            res.send({"message":"compra realizada"})
+        });
 
 
     });

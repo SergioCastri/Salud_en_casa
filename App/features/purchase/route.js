@@ -1,17 +1,17 @@
 const Router = require('express').Router
 
-const utilUser = require('./util')
+const utilPurchase = require('./util')
 
 let router = new Router()
 
-router.route('/user')
+router.route('/purchase')
   .post((...args) => {
-    utilUser.saveUser(...args)
+    utilPurchase.savePurchase(...args)
   })
 
-  router.route('/user')
+  router.route('/purchase')
   .get((...args) => {
-    utilUser.getAllUser(...args)
+    utilPurchase.getAllPurchase(...args)
 })
 
 module.exports = router
