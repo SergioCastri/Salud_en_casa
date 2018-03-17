@@ -9,6 +9,13 @@ router.route('/supremeUser')
     utilSupremeUser.saveSupremeUser(...args)
   })
 
+
+  router.route('/supremeUserSingIn')
+  .post((...args) => {
+    utilSupremeUser.singIn(...args)
+  })
+
+
   router.route('/supremeUser')
   .get((...args) => {
     utilSupremeUser.getAllSupremeUser(...args)

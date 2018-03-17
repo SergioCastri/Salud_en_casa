@@ -21,7 +21,23 @@ function getAllUser(req, res) {
 }
 
 
+function singIn (req, res){
+  user.find({user: req.body.user, password:req.body.password}, '-_id -__v ', function (err, doc) {
+      if(doc.length > 0){
+          let jobUser = doc[0].job; 
+          let countryUser = doc[0].country; 
+          res.send({"job" : jobUser, "country" : countryUser})
+      }else{
+          res.send({"message" : "Usuario o contraseña incorrecta"})
+      }
+      
+  });
+  
+  
+} 
+
 module.exports = { // Exporta todos los metodos
     saveUser: saveUser,
-  getAllUser : getAllUser
+  getAllUser : getAllUser,
+  singIn : singIn 
 }

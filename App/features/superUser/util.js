@@ -21,8 +21,24 @@ function getAllSuperUser(req, res) {
   });
 }
 
+function singIn(req, res) {
+  superUser.find({ user: req.body.user, password: req.body.password }, '-_id -__v ', function (err, doc) {
+    if (doc.length > 0) {
+      let jobSuperUser = doc[0].job;
+      let countrySuperUser = doc[0].country;
+      res.send({ "job": jobSuperUser, "country": countrySuperUser })
+    } else {
+      res.send({ "message": "Usuario o contraseña incorrecta" })
+    }
+
+  });
+
+
+} 
+
 
 module.exports = { // Exporta todos los metodos
   saveSuperUser: saveSuperUser,
-  getAllSuperUser : getAllSuperUser
+  getAllSuperUser : getAllSuperUser,
+  singIn : singIn
 }

@@ -9,6 +9,12 @@ router.route('/user')
     utilUser.saveUser(...args)
   })
 
+  router.route('/userSingIn')
+  .post((...args) => {
+    utilUser.singIn(...args)
+  })
+
+
   router.route('/user')
   .get((...args) => {
     utilUser.getAllUser(...args)

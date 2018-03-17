@@ -21,8 +21,21 @@ function getAllSupremeUser(req, res) {
   });
 }
 
+function singIn (req, res){
+  supremeUser.find({user: req.body.user, password:req.body.password}, '-_id -__v ', function (err, doc) {
+    if(doc.length > 0){
+        let jobSupremeUser = doc[0].job;
+        console.log(jobSupremeUser)
+        res.send({"message" : jobSupremeUser})
+    }else{
+          res.send({"message" : "Usuario o contraseña incorrecta"})
+      }
+      
+  });
+}
 
 module.exports = { // Exporta todos los metodos
   saveSupremeUser: saveSupremeUser,
-  getAllSupremeUser : getAllSupremeUser
+  getAllSupremeUser : getAllSupremeUser,
+  singIn : singIn
 }

@@ -7,6 +7,7 @@ let spurchaseSchemasJSON = {
     
   }
   
+  
   function getPurchaseSchema () {
     return spurchaseSchemasJSON
   }

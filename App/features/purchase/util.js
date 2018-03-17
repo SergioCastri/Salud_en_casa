@@ -10,15 +10,21 @@ function savePurchase(req, res) {
         let availableQuantity = doc[0].quantity;
         let value = doc[0].value;
 
+        if(availableQuantity < req.body.quantity){
+            res.send({"message": "no se tiene esta cantidad"})
+        }else{ 
+           
         let newPurchase = new purchase({
             nameUser: req.body.nameUser, nameMedicament: req.body.nameMedicament,
             quantity: req.body.quantity, unitaryValue: value, totalValue: (req.body.quantity * value)
 
-        })
+        }) 
+            
         let newMedicament = new medicament({
             medicament : req.body.nameMedicament, quantity : (availableQuantity - req.body.quantity), 
             value: value
         })
+
         newMedicament.save(function () {
         })
 
@@ -27,9 +33,8 @@ function savePurchase(req, res) {
 
         medicament.findOneAndRemove({medicament: req.body.nameMedicament, quantity: availableQuantity}, function(err) {
             res.send({"message":"compra realizada"})
-        });
-
-
+        });}
+  
     });
 };
 

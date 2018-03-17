@@ -6,7 +6,12 @@ let router = new Router()
 
 router.route('/client')
   .post((...args) => {
-    utilClient.saveClient(...args)
+    utilClient.registerClient(...args)
+  })
+
+  router.route('/clientSingIn')
+  .post((...args) => {
+    utilClient.singIn(...args)
   })
 
   router.route('/client')

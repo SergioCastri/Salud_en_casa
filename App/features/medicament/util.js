@@ -8,7 +8,7 @@ function saveMedicament (req, res) { // función para guardar implemento
   })
 
   newMedicament.save(function () {
-    res.send({"message" :"Usuario registrado exitosamente"})
+    res.send({"message" :"medicamentos registrado exitosamente"})
   })
 };
 
