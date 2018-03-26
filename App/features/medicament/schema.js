@@ -1,7 +1,12 @@
 let medicamentSchemasJSON = {
    medicament: String,
+   category: String,
+   description: String,
+   characterist: String, 
    quantity: Number,
-   value: Number
+   volumen:String,
+   value: Number, 
+   photos : [{}]
   }
   
   function getMedicamentSchema () {
