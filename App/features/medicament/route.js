@@ -24,4 +24,14 @@ router.route('/medicament')
     utilMedicament.getAllMedicament(...args)
 })
 
+router.route('/medicament/:medicament')
+  .delete((...args) => {
+    utilMedicament.deleteMedicament(...args)
+ })
+
+ router.route('/updateMedicament')
+  .post((...args) => {
+    utilMedicament.updateMedicament(...args)
+ })
+
 module.exports = router

@@ -1,14 +1,12 @@
 
 let clientSchemasJSON = {
     name: String,
-    country : String,
-    city : String,
-    region :String,
-    lat : String,
-    long : String,
-    user: String,
-    password: String,
-    job : String
+    lastName : String,
+    user : String,
+    email : String,
+    age :Number,
+    gender : String,
+    password : String
   }
   
   function getClientSchema () {

@@ -1,18 +1,31 @@
 
-let userSchemasJSON = {
-    id: String,
+let userAdminSchemasJSON = {
+    email: String,
     name: String,
-    country : String,
+    age : String,
     user: String,
-    password: String,
-    job: String
+    password: String
   }
   
-  function getUserSchema () {
-    return userSchemasJSON
+  function getUserAdminSchema () {
+    return userAdminSchemasJSON
   }
   
+  
+let userMessengerSchemasJSON = {
+  email: String,
+  name: String,
+  age : String,
+  user: String,
+  hours : String,
+  password: String
+}
+
+function getUserMessengerSchema () {
+  return userMessengerSchemasJSON
+}
   
   module.exports = { // Exporta todos los metodos
-    getUserSchema: getUserSchema
+    getUserAdminSchema: getUserAdminSchema, 
+    getUserMessengerSchema : getUserMessengerSchema
   }

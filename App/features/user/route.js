@@ -4,20 +4,47 @@ const utilUser = require('./util')
 
 let router = new Router()
 
-router.route('/user')
+router.route('/messengerUser')
   .post((...args) => {
-    utilUser.saveUser(...args)
+    utilUser.saveMessengerUser(...args)
   })
 
-  router.route('/userSingIn')
+  router.route('/adminUser')
   .post((...args) => {
-    utilUser.singIn(...args)
+    utilUser.saveAdminUser(...args)
+  })
+
+  router.route('/adminUserSingIn')
+  .post((...args) => {
+    utilUser.singInAdmin(...args)
+  })
+
+  router.route('/messengerUserSingIn')
+  .post((...args) => {
+    utilUser.singInMessenger(...args)
+  })
+
+  
+  router.route('/changePassAdmin')
+  .post((...args) => {
+    utilUser.changePassAdmin(...args)
+  })
+
+  router.route('/changePassMessenger')
+  .post((...args) => {
+    utilUser.changePassMessenger(...args)
   })
 
 
-  router.route('/user')
+  router.route('/adminUser')
   .get((...args) => {
-    utilUser.getAllUser(...args)
+    utilUser.getAllUserAdmin(...args)
 })
+
+router.route('/messengerUser')
+.get((...args) => {
+  utilUser.getAllUserMessenger(...args)
+})
+
 
 module.exports = router

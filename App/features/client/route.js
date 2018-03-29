@@ -14,6 +14,10 @@ router.route('/client')
     utilClient.singIn(...args)
   })
 
+  router.route('/changePasswordClient')
+  .post((...args) => {
+    utilClient.changePass(...args)
+  })
   router.route('/client')
   .get((...args) => {
     utilClient.getAllClients(...args)

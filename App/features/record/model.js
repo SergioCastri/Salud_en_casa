@@ -11,23 +11,14 @@ function close () {
   moon.close()
 }
 
-let userAdminSchema = new schema(schemas.getUserAdminSchema())
-let userAdmin = mongoose.model('UserAdmin', userAdminSchema)
+let recordSchema = new schema(schemas.getRecordSchema())
+let record = mongoose.model('Record', recordSchema)
 
-let userMessengerSchema = new schema(schemas.getUserMessengerSchema())
-let userMessenger = mongoose.model('UserMessenger', userMessengerSchema)
-
-
-function getAdminUser () {
-  return userAdmin
-}
-function getMessengerUser () {
-  return userMessenger
+function getRecord() {
+  return record
 }
 
 module.exports = { // Exporta todos los modelos
-    getAdminUser: getAdminUser,
-    
-    getMessengerUser:getMessengerUser,
+    getRecord: getRecord,
   close: close
 }
