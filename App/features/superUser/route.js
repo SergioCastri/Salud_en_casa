@@ -4,7 +4,7 @@ const utilSuperUser = require('./util')
 
 let router = new Router()
 
-router.route('/superUser')
+router.route('/super')
   .post((...args) => {
     utilSuperUser.saveSuperUser(...args)
   })
