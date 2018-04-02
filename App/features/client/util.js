@@ -39,7 +39,7 @@ function singIn(req, res) {
   client.find({user: req.body.user, password:req.body.password}, '-_id -__v ', function (err, doc) {
     if(doc.length > 0){
       
-        res.send({"message" : "bienvenido " + doc[0].name})
+        res.send({"message" : "bienvenido " + doc[0].name, "job":"client"})
         
     }else {
       res.send({ "message": "Usuario o contraseña incorrecta" })

@@ -59,7 +59,7 @@ function saveAdminUser(req, res) {
   function singInAdmin(req, res) {
     userAdmin.find({ user: req.body.user, password: req.body.password }, '-_id -__v ', function (err, doc) {
       if (doc.length > 0) {
-         res.send({ "messsage": "bienvenido " + doc[0].name })
+         res.send({ "messsage": "bienvenido " + doc[0].name, "job":"adminUser"})
       } else {
         res.send({ "message": "Usuario o contraseña incorrecta" })
       }
@@ -70,7 +70,7 @@ function saveAdminUser(req, res) {
 function singInMessenger(req, res) {
   userMessenger.find({ user: req.body.user, password: req.body.password }, '-_id -__v ', function (err, doc) {
     if (doc.length > 0) {
-       res.send({ "messsage": "bienvenido " + doc[0].name })
+       res.send({ "messsage": "bienvenido " + doc[0].name, "job":"messengerUser" })
     } else {
       res.send({ "message": "Usuario o contraseña incorrecta" })
     }

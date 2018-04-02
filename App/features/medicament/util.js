@@ -13,7 +13,7 @@ function saveMedicament(req, res) { // función para guardar implemento
       let newMedicament = new medicament({
         medicament: req.body.medicament, category: req.body.category, description: req.body.description,
         characterist: req.body.characterist, quantity: req.body.quantity, volumen: req.body.volumen,
-        value: req.body.value, photos: req.body.photos
+        value: req.body.value, photo: req.body.photo
       })
 
       newMedicament.save(function () {
@@ -62,7 +62,7 @@ async function updateMedicament(req, res) {
   let newMedicament = new medicament({
     medicament: req.body.medicament, category: req.body.category, description: req.body.description,
     characterist: req.body.characterist, quantity: req.body.quantity, volumen: req.body.volumen,
-    value: req.body.value, photos: req.body.photos
+    value: req.body.value, photo: req.body.photo
   })
   var doc2 = newMedicament
   newMedicament.save(function () {

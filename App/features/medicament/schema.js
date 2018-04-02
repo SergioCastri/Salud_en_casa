@@ -6,7 +6,7 @@ let medicamentSchemasJSON = {
    quantity: Number,
    volumen:String,
    value: Number, 
-   photos : [{}]
+   photo: String
   }
   
   function getMedicamentSchema () {
