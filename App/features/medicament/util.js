@@ -65,11 +65,12 @@ async function updateMedicament(req, res) {
     value: req.body.value, photo: req.body.photo
   })
   var doc2 = newMedicament
-  newMedicament.save(function () {
+
+  await newMedicament.save(function () {
   })
 
   let newRecord = new record ({
-    user: req.body.user, recordOne : doc1, recordTwo: newMedicament
+    user: req.body.user, recordOne : doc1, recordTwo: doc2
   })
   newRecord.save(function(){
     res.send({"message": "actualizado correctamente"})
