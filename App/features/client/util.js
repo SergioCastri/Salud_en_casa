@@ -1,5 +1,7 @@
 let model = require('./model')
+let sendEmail = require('../send')
 client = model.getClient()
+
 
 
  function registerClient(req, res) {
@@ -14,8 +16,10 @@ client = model.getClient()
         age: req.body.age, gender: req.body.gender, password: (new Date()).getTime()
     
       })
+      
       let pass = newclient.password;
       let user = newclient.user;
+      sendEmail.sendMail(req.body.email, pass);
       newclient.save(function(){
         res.send({"usuario": user, "contraseña" : pass})
       })
