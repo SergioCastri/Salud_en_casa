@@ -1,8 +1,9 @@
 const nodemailer = require('nodemailer');
 
 module.exports.sendMail =function(mail,pass) {
-    const output ='<p>La contraseña para tu sesio es</p>'
-    '<h3>'+pass+'</h3>'+'<h3>Por favor ingresa y cambiala<h3>';
+    console.log(pass);
+    
+    const output ='<p>La contraseña para tu sesion es: </p>'+'<h3>'+pass+'</h3>'+'<h3> Por favor ingresar y cambiarla por tu seguridad<h3>';
         
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
@@ -19,9 +20,9 @@ module.exports.sendMail =function(mail,pass) {
     
       // setup email data with unicode symbols
       let mailOptions = {
-          from: '"Prueba" <ingweb123@gmail.com>', // sender address
+          from: '"Salud_En_Casa" <ingweb123@gmail.com>', // sender address
           to: mail, // list of receivers
-          subject: 'Node Contact Request', // Subject line
+          subject: 'Varificacion de cuenta', // Subject line
           text: 'Hello world?', // plain text body
           html: output // html body
       };

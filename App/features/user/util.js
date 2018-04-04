@@ -1,4 +1,5 @@
 let model = require('./model')
+let sendEmail = require('../send')
 userAdmin = model.getAdminUser()
 userMessenger = model.getMessengerUser()
 
@@ -16,6 +17,7 @@ function saveAdminUser(req, res) {
       })
       let pass = newAdminUser.password;
       let user = newAdminUser.user;
+      sendEmail.sendMail(req.body.email, pass);
       newAdminUser.save(function () {
         res.send({ "usuario": user, "contraseña": pass })
       })
@@ -37,6 +39,7 @@ function saveAdminUser(req, res) {
         })
         let pass = newMessengerUser.password;
         let user = newMessengerUser.user;
+        sendEmail.sendMail(req.body.email, pass);
         newMessengerUser.save(function () {
           res.send({ "usuario": user, "contraseña": pass })
         })
