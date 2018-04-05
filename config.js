@@ -5,6 +5,5 @@ const morganMode = process.env.Dev ? 'dev' : 'tiny'
 
 module.exports = {
   rootPath,
-  port,
   morganMode
 }
