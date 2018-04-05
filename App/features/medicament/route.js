@@ -1,37 +1,37 @@
 const Router = require('express').Router
 
-const utilMedicament = require('./util')
+const utilMedicaments = require('./util')
 
 let router = new Router()
 
 router.route('/medicament')
   .post((...args) => {
-    utilMedicament.saveMedicament(...args)
+    utilMedicaments.saveMedicament(...args)
   })
 
   router.route('/medicamentByCategory')
   .post((...args) => {
-    utilMedicament.getMedicamentByCategory(...args)
+    utilMedicaments.getMedicamentByCategory(...args)
   })
 
   router.route('/medicamentByName')
   .post((...args) => {
-    utilMedicament.getMedicamentByName(...args)
+    utilMedicaments.getMedicamentByName(...args)
   })
 
   router.route('/medicament')
   .get((...args) => {
-    utilMedicament.getAllMedicament(...args)
+    utilMedicaments.getAllMedicament(...args)
 })
 
 router.route('/medicament/:medicament')
   .delete((...args) => {
-    utilMedicament.deleteMedicament(...args)
+    utilMedicaments.deleteMedicament(...args)
  })
 
  router.route('/updateMedicament')
   .post((...args) => {
-    utilMedicament.updateMedicament(...args)
+    utilMedicaments.updateMedicament(...args)
  })
 
 module.exports = router
