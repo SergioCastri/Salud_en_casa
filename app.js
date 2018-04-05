@@ -3,7 +3,8 @@ const express = require('express')
 let app = new express()
 
 require('./server')(app)
+var port = process.env.PORT || 8080;
 
-app.listen(app.get('port'), () => {
-  console.log(`It's the best app... ${app.get('port')}`)
+app.listen(port, () => {
+  console.log(`Corriendo en el puerto... ${port}`)
 })

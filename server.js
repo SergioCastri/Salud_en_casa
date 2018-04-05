@@ -3,10 +3,9 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 const config = require('./config')
 const routes = require('./App/routes')
-var port = process.env.PORT || 8080;
+
 
 module.exports = (app) => {
-  app.set('port', port)
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(morgan(config.morganMode))
