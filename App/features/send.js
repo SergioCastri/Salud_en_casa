@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 module.exports.sendMail =function(mail,pass) {
     console.log(pass);
     
-    const output ='<p>La contraseña para tu sesion es: </p>'+'<h3>'+pass+'</h3>'+'<h3> Por favor ingresar y cambiarla por tu seguridad<h3>';
+    const output ='<p>La contraseña para tu sesion es: </p>'+'<h3>'+pass+'</h3>'+'<h3> Por favor ingresar con el usuario registrado y cambiarla por tu seguridad<h3>';
         
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',

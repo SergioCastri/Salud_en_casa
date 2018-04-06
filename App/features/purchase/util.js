@@ -18,7 +18,7 @@ async function savePurchase(req, res) {
                 medicament : doc[0].medicament, category: doc[0].category, 
                 description:doc[0].description, characterist:doc[0].characterist, 
                 quantity : req.body.medicaments[i].quantity, volumen:doc[0].volumen,
-                value: doc[0].value, photos: doc[0].photos
+                value: doc[0].value, photo: doc[0].photo
         }
         if(availableQuantity < req.body.medicaments[i].quantity ){
             res.send({"message": "Cantidad no disponible de" + req.body.medicaments[i].medicament })
@@ -27,7 +27,7 @@ async function savePurchase(req, res) {
             medicament : doc[0].medicament, category: doc[0].category, 
             description:doc[0].description, characterist:doc[0].characterist, 
             quantity : (doc[0].quantity - req.body.medicaments[i].quantity), volumen:doc[0].volumen,
-            value: doc[0].value, photos: doc[0].photos
+            value: doc[0].value, photo: doc[0].photo
         })
         await newMedicament.save()
         var err = await medicament.findOneAndRemove({ medicament: req.body.medicaments[i].medicament, quantity: availableQuantity }) 
