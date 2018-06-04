@@ -1,5 +1,6 @@
 let spurchaseSchemasJSON = {
     nameUser : String,
+    state : String,
     medicaments: [{}],
     totalValue: Number
     

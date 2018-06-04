@@ -9,6 +9,8 @@ let routeMedicament = require('./features/medicament/route')
 let routePurchase = require('./features/purchase/route')  
 let routeService = require('./features/service/route') 
 let routeRecord = require('./features/record/route')
+let routeTracking = require('./features/trackingDomicilios/route')
+
 
 let router = new Router()
 
@@ -20,5 +22,7 @@ router.use('/v1', routeMedicament)
 router.use('/v1', routePurchase)
 router.use('/v1', routeService)
 router.use('/v1', routeRecord)
+router.use('/v1', routeTracking)
+
 
 module.exports = router

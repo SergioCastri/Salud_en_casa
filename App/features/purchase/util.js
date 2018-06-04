@@ -42,7 +42,7 @@ async function savePurchase(req, res) {
 
     let newPurchaseMedicament = new purchase({
         
-        nameUser: req.body.nameUser, medicaments: jsonMedicaments, totalValue: totalValue2
+        nameUser: req.body.nameUser, state: "Activo", medicaments: jsonMedicaments, totalValue: totalValue2
     })
 
     await newPurchaseMedicament.save()
@@ -51,12 +51,12 @@ async function savePurchase(req, res) {
         res.send(doc1Aux)
 
 };
-
+    
 
 
 
 function getAllPurchase(req, res) {
-    purchase.find({}, '-_id -__v ', function (err, doc) {
+    purchase.find({state : "Activo"}, '-_id -__v ', function (err, doc) {
     res.status(200).jsonp(doc)
   });
 }
